@@ -1,21 +1,29 @@
-let randomIndex = Math.floor(Math.random() * 4);
+const randomIndex = (num) => Math.floor(Math.random() * num);
 const messages = {
-  quranMessages: [
-    "“Guide Us To The Straight Path”",
-    "“….so whenever guidance comes to you from Me, then whoever follows my guidance, then there will neither be any fear on them nor will they grieve.”",
-    "“So remember Me; I will remember you”",
-    "“Wherever you may be, death will overtake you, even if you should be within towers of lofty construction.”",
+  name: ["Abdelfettah", "Asmaa", "Nusseibah", "Nora"],
+  quality: [
+    "super star",
+    "coder",
+    "math genius",
+    "very strong",
+    "mashaa allah",
   ],
-  sunnaMessages: [
-    "“The best among you is the one who doesn’t harm others with his tongue and hands.”",
-    " “The greatest of richness is the richness of the soul.”",
-    "“No two things have been combined better than knowledge and patience.”",
-    "“A kind word is a form of charity.”",
-  ],
-  mixtMessages() {
-    console.log(this.quranMessages[randomIndex]);
-    console.log(this.sunnaMessages[randomIndex]);
-  },
+  hobby: ["pasta", "chess", "treadmill", "reading", "tuna"],
 };
+let mixtMessages = [];
 
-messages.mixtMessages();
+for (let arr in messages) {
+  const message = messages[arr][randomIndex(messages[arr].length)];
+  if (arr == "name") {
+    let random = `My name is ${message}`;
+    mixtMessages.push(random);
+  } else if (arr == "quality") {
+    let random = `I am ${message}`;
+    mixtMessages.push(random);
+  } else {
+    let random = `I love ${message}`;
+    mixtMessages.push(random);
+  }
+  //console.log(arr);
+}
+console.log(mixtMessages.join("\n"));
